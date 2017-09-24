@@ -1,0 +1,38 @@
+version: '2'
+services:
+  mysql-openstack:
+    image: mysql:5.5
+    container_name: mysql-openstack
+    hostname: mysql-openstack
+    environment:
+    - MYSQL_ROOT_PASSWORD=mysql123
+
+  keystone-server:
+    image: ttsubo/keystone:1.0.0
+    command: /bin/sh -c "sleep 20; /root/init_mitaka.sh; /root/start_keystone.sh"
+    links:
+    - mysql-openstack
+    container_name: keystone-server
+    hostname: keystone-server
+    environment:
+    - OS_TOKEN=ADMIN
+    - OS_URL=http://localhost:35357/v3
+    - OS_IDENTITY_API_VERSION=3 
+
+  glance-server:
+    image: ttsubo/glance:1.0.0
+    command: /bin/sh -c "sleep 40; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    links:
+    - mysql-openstack
+    - keystone-server
+    container_name: glance-server
+    hostname: glance-server
+    environment:
+    - OS_PROJECT_DOMAIN_NAME=default
+    - OS_USER_DOMAIN_NAME=default
+    - OS_PROJECT_NAME=admin
+    - OS_USERNAME=admin
+    - OS_PASSWORD=passw0rd
+    - OS_AUTH_URL=http://keystone-server:35357/v3
+    - OS_IDENTITY_API_VERSION=3
+    - OS_IMAGE_API_VERSION=2

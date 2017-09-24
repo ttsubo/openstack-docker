@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: keystone-pod
+  labels:
+    name: keystone-pod
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: keystone-pod
+    spec:
+      containers:
+      - name: keystone-pod
+        image: gcr.io/gke-sample-180904/keystone:1.0.0
+        ports:
+        - containerPort: 35357
+        env:
+        - name: OS_TOKEN
+          value: "ADMIN"
+        - name: OS_URL
+          value: "http://localhost:35357/v3"
+        - name: OS_IDENTITY_API_VERSION
+          value: "3"
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 20; /root/init_mitaka.sh; /root/start_keystone.sh"]
