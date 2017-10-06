@@ -18,6 +18,7 @@ sleep 10
 
 openstack network create admin_net
 neutron subnet-create admin_net 10.0.0.0/24 --name admin_subnet
+neutron port-create admin_net
 
 echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf 
 echo 'net.ipv4.conf.default.rp_filter=0' >> /etc/sysctl.conf 

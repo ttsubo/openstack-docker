@@ -76,4 +76,3 @@ services:
     - OS_AUTH_URL=http://keystone-server:35357/v3
     - OS_IDENTITY_API_VERSION=3
     - OS_IMAGE_API_VERSION=2
-#    privileged: true
