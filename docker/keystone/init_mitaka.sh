@@ -39,10 +39,14 @@ openstack role create _member_
 openstack role add --project demo --user demo _member_
 openstack role add --project demo --user admin admin
 
-# Create service project / glance user
+# Create service project / glance,nova,neutron user
 openstack project create --domain default --description "Service Project" service
 openstack user create --domain default --password="${MEMBER_PASSWORD}" glance
 openstack role add --project service --user glance admin
+openstack user create --domain default --password="${MEMBER_PASSWORD}" nova 
+openstack role add --project service --user nova admin
+openstack user create --domain default --password="${MEMBER_PASSWORD}" neutron
+openstack role add --project service --user neutron admin
 
 # Add compute service
 openstack service create --name nova --description "OpenStack Nova Service" compute

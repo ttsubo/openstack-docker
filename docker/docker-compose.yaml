@@ -21,7 +21,7 @@ services:
 
   glance-server:
     image: ttsubo/glance:1.0.0
-    command: /bin/sh -c "sleep 40; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    command: /bin/sh -c "sleep 60; /root/init_mitaka.sh; /usr/bin/supervisord -n"
     links:
     - mysql-openstack
     - keystone-server
@@ -39,7 +39,7 @@ services:
 
   nova-server:
     image: ttsubo/nova:1.0.0
-    command: /bin/sh -c "sleep 40; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    command: /bin/sh -c "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"
     links:
     - mysql-openstack
     - keystone-server
@@ -60,7 +60,7 @@ services:
 
   neutron-server:
     image: ttsubo/neutron:1.0.0
-    command: /bin/sh -c "sleep 60; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    command: /bin/sh -c "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"
     links:
     - mysql-openstack
     - keystone-server
