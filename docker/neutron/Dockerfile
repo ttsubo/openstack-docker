@@ -31,6 +31,10 @@ WORKDIR /root
 COPY ./neutron.conf /etc/neutron/neutron.conf
 COPY ./init_mitaka.sh /root/init_mitaka.sh
 COPY ./openstackrc_admin /root/openstackrc_admin
+COPY ./ml2_conf.ini /etc/neutron/plugins/ml2/ml2_conf.ini
+COPY ./linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini
+COPY ./dhcp_agent.ini /etc/neutron/dhcp_agent.ini
+COPY ./l3_agent.ini /etc/neutron/l3_agent.ini
 ADD supervisord.conf /etc/supervisor/
 ADD rabbitmq.conf /etc/supervisor/conf.d/
 ADD neutron-supervisor.conf /etc/supervisor/conf.d
