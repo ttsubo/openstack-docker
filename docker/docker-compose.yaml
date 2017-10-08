@@ -8,7 +8,7 @@ services:
     - MYSQL_ROOT_PASSWORD=mysql123
 
   keystone-server:
-    image: ttsubo/keystone:1.0.0
+    image: ttsubo/keystone:1.0.1
     command: /bin/sh -c "sleep 20; /root/init_mitaka.sh; /root/start_keystone.sh"
     links:
     - mysql-openstack
@@ -20,8 +20,8 @@ services:
     - OS_IDENTITY_API_VERSION=3 
 
   glance-server:
-    image: ttsubo/glance:1.0.0
-    command: /bin/sh -c "sleep 40; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    image: ttsubo/glance:1.0.1
+    command: /bin/sh -c "sleep 60; /root/init_mitaka.sh; /usr/bin/supervisord -n"
     links:
     - mysql-openstack
     - keystone-server
@@ -38,14 +38,35 @@ services:
     - OS_IMAGE_API_VERSION=2
 
   nova-server:
-    image: ttsubo/nova:1.0.0
-    command: /bin/sh -c "sleep 40; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    image: ttsubo/nova:1.0.1
+    command: /bin/sh -c "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"
     links:
     - mysql-openstack
     - keystone-server
     - glance-server
+    - neutron-server
     container_name: nova-server
     hostname: nova-server
+    environment:
+    - OS_PROJECT_DOMAIN_NAME=default
+    - OS_USER_DOMAIN_NAME=default
+    - OS_PROJECT_NAME=admin
+    - OS_USERNAME=admin
+    - OS_PASSWORD=passw0rd
+    - OS_AUTH_URL=http://keystone-server:35357/v3
+    - OS_IDENTITY_API_VERSION=3
+    - OS_IMAGE_API_VERSION=2
+    privileged: true
+
+  neutron-server:
+    image: ttsubo/neutron:1.0.1
+    command: /bin/sh -c "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    links:
+    - mysql-openstack
+    - keystone-server
+    - glance-server
+    container_name: neutron-server
+    hostname: neutron-server
     environment:
     - OS_PROJECT_DOMAIN_NAME=default
     - OS_USER_DOMAIN_NAME=default

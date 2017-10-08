@@ -13,8 +13,9 @@ spec:
     spec:
       containers:
       - name: keystone-pod
-        image: gcr.io/gke-sample-180904/keystone:1.0.0
+        image: gcr.io/gke-sample-180904/keystone:1.0.1
         ports:
+        - containerPort: 5000
         - containerPort: 35357
         env:
         - name: OS_TOKEN
