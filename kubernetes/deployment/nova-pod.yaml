@@ -1,21 +1,26 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: glance-pod
+  name: nova-pod
   labels:
-    name: glance-pod
+    name: nova-pod
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: glance-pod
+        name: nova-pod
     spec:
       containers:
-      - name: glance-pod
-        image: gcr.io/gke-sample-180904/glance:1.0.1
+      - name: nova-pod
+        image: gcr.io/gke-sample-180904/nova:1.0.1
         ports:
-        - containerPort: 9292
+        - containerPort: 5999
+        - containerPort: 8773
+        - containerPort: 8774
+        - containerPort: 8775
+        securityContext:
+          privileged: true
         env:
         - name: OS_PROJECT_DOMAIN_NAME
           value: "default"
@@ -34,4 +39,4 @@ spec:
         - name: OS_IMAGE_API_VERSION
           value: "2"
         command: ["/bin/sh"]
-        args: ["-c", "sleep 60; /root/init_mitaka.sh; /usr/bin/supervisord -n"]
+        args: ["-c", "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"]

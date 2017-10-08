@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: nova-server
+  name: nova-server
+spec:
+  ports:
+  - name: port5999
+    port: 5999
+  - name: port8773
+    port: 8773
+  - name: port8774
+    port: 8774
+  - name: port8775
+    port: 8775
+  selector:
+    name: nova-pod
