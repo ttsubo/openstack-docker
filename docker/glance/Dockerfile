@@ -28,6 +28,6 @@ COPY ./init_mitaka.sh /root/init_mitaka.sh
 COPY ./openstackrc_admin /root/openstackrc_admin
 ADD supervisord.conf /etc/supervisor/
 ADD glance.conf /etc/supervisor/conf.d/
-ADD http://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img /root
+ADD https://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img /root
 
 EXPOSE 9292
