@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nova-pod
@@ -6,6 +6,9 @@ metadata:
     name: nova-pod
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: nova-pod
   template:
     metadata:
       labels:
@@ -13,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nova-pod
-        image: gcr.io/gke-sample-180904/nova:1.0.1
+        image: gcr.io/gke-sample-211005/nova:1.0.1
         ports:
         - containerPort: 5999
         - containerPort: 8773

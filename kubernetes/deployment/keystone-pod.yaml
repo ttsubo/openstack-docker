@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: keystone-pod
@@ -6,6 +6,9 @@ metadata:
     name: keystone-pod
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: keystone-pod
   template:
     metadata:
       labels:
@@ -13,7 +16,7 @@ spec:
     spec:
       containers:
       - name: keystone-pod
-        image: gcr.io/gke-sample-180904/keystone:1.0.1
+        image: gcr.io/gke-sample-211005/keystone:1.0.1
         ports:
         - containerPort: 5000
         - containerPort: 35357

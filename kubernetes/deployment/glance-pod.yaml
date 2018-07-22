@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: glance-pod
@@ -6,6 +6,9 @@ metadata:
     name: glance-pod
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      name: glance-pod
   template:
     metadata:
       labels:
@@ -13,7 +16,7 @@ spec:
     spec:
       containers:
       - name: glance-pod
-        image: gcr.io/gke-sample-180904/glance:1.0.1
+        image: gcr.io/gke-sample-211005/glance:1.0.1
         ports:
         - containerPort: 9292
         env:
