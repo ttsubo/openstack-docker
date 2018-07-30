@@ -47,6 +47,8 @@ openstack user create --domain default --password="${MEMBER_PASSWORD}" nova
 openstack role add --project service --user nova admin
 openstack user create --domain default --password="${MEMBER_PASSWORD}" neutron
 openstack role add --project service --user neutron admin
+openstack user create --domain default --password="${MEMBER_PASSWORD}" heat
+openstack role add --project service --user heat admin
 
 # Add compute service
 openstack service create --name nova --description "OpenStack Nova Service" compute
