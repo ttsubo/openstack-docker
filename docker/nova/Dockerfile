@@ -1,6 +1,8 @@
-FROM ubuntu:14.04.5
+FROM ubuntu:16.04
 
 MAINTAINER Toshiki Tsuboi <t.tsubo2000@gmail.com>
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
  && apt-get install -y git python-dev
@@ -12,7 +14,7 @@ RUN python get-pip.py
 RUN apt-get install -y apt-file \
  && apt-get install -y software-properties-common \
  && apt-get install -y python-software-properties \
- && add-apt-repository -y cloud-archive:mitaka
+ && add-apt-repository -y cloud-archive:newton
 
 RUN apt-get update \
  && apt-get install -y nova-api nova-scheduler \
@@ -27,7 +29,7 @@ RUN apt-get update \
 
 WORKDIR /root
 COPY ./nova.conf /etc/nova/nova.conf
-COPY ./init_mitaka.sh /root/init_mitaka.sh
+COPY ./init_newton.sh /root/init_newton.sh
 COPY ./openstackrc_admin /root/openstackrc_admin
 ADD supervisord.conf /etc/supervisor/
 ADD rabbitmq.conf /etc/supervisor/conf.d/
