@@ -7,7 +7,8 @@ RUN apt-get update \
 
 WORKDIR /
 ADD https://bootstrap.pypa.io/get-pip.py /
-RUN python get-pip.py
+RUN python get-pip.py \
+ && pip install pip==9.0.3
 
 RUN apt-get install -y apt-file \
  && apt-get install -y software-properties-common \
@@ -32,6 +33,8 @@ COPY ./openstackrc_admin /root/openstackrc_admin
 ADD supervisord.conf /etc/supervisor/
 ADD rabbitmq.conf /etc/supervisor/conf.d/
 ADD nova-supervisor.conf /etc/supervisor/conf.d
+
+ADD versionutils.py /usr/lib/python2.7/dist-packages/oslo_utils/
 
 EXPOSE 5999
 EXPOSE 8773

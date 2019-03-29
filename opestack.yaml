@@ -1,0 +1,217 @@
+##################################################################################################
+# mysql service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: mysql-openstack
+  name: mysql-openstack
+spec:
+  ports:
+  - port: 3306
+  selector:
+    name: mysql-pod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-pod
+  labels:
+    name: mysql-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mysql-pod
+  template:
+    metadata:
+      labels:
+        name: mysql-pod
+    spec:
+      containers:
+      - name: mysql-pod
+        image: mysql:5.5
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mysql123"
+---
+##################################################################################################
+# keystone service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: keystone-server
+  name: keystone-server
+spec:
+  ports:
+  - name: admin-port
+    port: 35357
+  - name: public-port
+    port: 5000
+  selector:
+    name: keystone-pod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keystone-pod
+  labels:
+    name: keystone-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: keystone-pod
+  template:
+    metadata:
+      labels:
+        name: keystone-pod
+    spec:
+      containers:
+      - name: keystone-pod
+        image: ttsubo/keystone:1.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        - containerPort: 35357
+        env:
+        - name: OS_TOKEN
+          value: "ADMIN"
+        - name: OS_URL
+          value: "http://localhost:35357/v3"
+        - name: OS_IDENTITY_API_VERSION
+          value: "3"
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 20; /root/init_mitaka.sh; /root/start_keystone.sh"]
+---
+##################################################################################################
+# glance service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: glance-server
+  name: glance-server
+spec:
+  ports:
+  - port: 9292
+  selector:
+    name: glance-pod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glance-pod
+  labels:
+    name: glance-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: glance-pod
+  template:
+    metadata:
+      labels:
+        name: glance-pod
+    spec:
+      containers:
+      - name: glance-pod
+        image: ttsubo/glance:1.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9292
+        env:
+        - name: OS_PROJECT_DOMAIN_NAME
+          value: "default"
+        - name: OS_USER_DOMAIN_NAME
+          value: "default"
+        - name: OS_PROJECT_NAME
+          value: "admin"
+        - name: OS_USERNAME
+          value: "admin"
+        - name: OS_PASSWORD
+          value: "passw0rd"
+        - name: OS_AUTH_URL
+          value: "http://keystone-server:35357/v3"
+        - name: OS_IDENTITY_API_VERSION
+          value: "3"
+        - name: OS_IMAGE_API_VERSION
+          value: "2"
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 60; /root/init_mitaka.sh; /usr/bin/supervisord -n"]
+---
+##################################################################################################
+# nova services
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: nova-server
+  name: nova-server
+spec:
+  ports:
+  - name: port5999
+    port: 5999
+  - name: port8773
+    port: 8773
+  - name: port8774
+    port: 8774
+  - name: port8775
+    port: 8775
+  selector:
+    name: nova-pod
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nova-pod
+  labels:
+    name: nova-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nova-pod
+  template:
+    metadata:
+      labels:
+        name: nova-pod
+    spec:
+      containers:
+      - name: nova-pod
+        image: ttsubo/nova:1.0.1
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5999
+        - containerPort: 8773
+        - containerPort: 8774
+        - containerPort: 8775
+        securityContext:
+          privileged: true
+        env:
+        - name: OS_PROJECT_DOMAIN_NAME
+          value: "default"
+        - name: OS_USER_DOMAIN_NAME
+          value: "default"
+        - name: OS_PROJECT_NAME
+          value: "admin"
+        - name: OS_USERNAME
+          value: "admin"
+        - name: OS_PASSWORD
+          value: "passw0rd"
+        - name: OS_AUTH_URL
+          value: "http://keystone-server:35357/v3"
+        - name: OS_IDENTITY_API_VERSION
+          value: "3"
+        - name: OS_IMAGE_API_VERSION
+          value: "2"
+        command: ["/bin/sh"]
+        args: ["-c", "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"]
+---
