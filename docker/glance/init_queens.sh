@@ -1,5 +1,10 @@
 #!/bin/bash
 
+until mysqladmin ping -h mysql-openstack --silent; do
+    echo 'waiting for mysqld to be connectable...'
+    sleep 3
+done
+
 mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "CREATE DATABASE glance;"
 mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON glance.* TO 'glance'@'%' IDENTIFIED BY 'glance';"
 

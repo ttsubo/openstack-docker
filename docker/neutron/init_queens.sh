@@ -1,5 +1,10 @@
 #!/bin/bash
 
+until mysqladmin ping -h mysql-openstack --silent; do
+    echo 'waiting for mysqld to be connectable...'
+    sleep 3
+done
+
 mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "CREATE DATABASE neutron;"
 mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON neutron.* TO 'nova'@'%' IDENTIFIED BY 'neutron';"
 
@@ -28,11 +33,13 @@ echo 'net.ipv4.conf.all.rp_filter=0' >> /etc/sysctl.conf
 sysctl -p 
 
 
-openstack network create admin_net
-neutron subnet-create admin_net 10.0.0.0/24 --name admin_subnet
-neutron port-create admin_net
+openstack network create admin_net &
+neutron subnet-create admin_net 10.0.0.0/24 --name admin_subnet &
+neutron port-create admin_net &
 
 pkill neutron-server
 pkill neutron-linuxbridge-agent
 pkill neutron-dhcp-agent
 pkill neutron-l3-agent
+pkill openstack
+pkill neutron

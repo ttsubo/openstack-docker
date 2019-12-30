@@ -1,9 +1,9 @@
-FROM ubuntu:14.04.5
+FROM ubuntu:16.04
 
 MAINTAINER Toshiki Tsuboi <t.tsubo2000@gmail.com>
 
 RUN apt-get update \
- && apt-get install -y git python-dev
+ && apt-get install -y git python-dev vim
 
 WORKDIR /
 ADD https://bootstrap.pypa.io/get-pip.py /
@@ -12,7 +12,7 @@ RUN python get-pip.py
 RUN apt-get install -y apt-file \
  && apt-get install -y software-properties-common \
  && apt-get install -y python-software-properties \
- && add-apt-repository -y cloud-archive:mitaka
+ && add-apt-repository -y cloud-archive:queens
 
 RUN apt-get update \
  && apt-get install -y neutron-server neutron-plugin-ml2 \
@@ -29,7 +29,7 @@ RUN apt-get update \
 
 WORKDIR /root
 COPY ./neutron.conf /etc/neutron/neutron.conf
-COPY ./init_mitaka.sh /root/init_mitaka.sh
+COPY ./init_queens.sh /root/init_queens.sh
 COPY ./openstackrc_admin /root/openstackrc_admin
 COPY ./ml2_conf.ini /etc/neutron/plugins/ml2/ml2_conf.ini
 COPY ./linuxbridge_agent.ini /etc/neutron/plugins/ml2/linuxbridge_agent.ini

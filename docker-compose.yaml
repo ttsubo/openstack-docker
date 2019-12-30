@@ -8,6 +8,9 @@ services:
     - MYSQL_ROOT_PASSWORD=mysql123
 
   keystone-server:
+    build: docker/keystone/.
+#    image: ttsubo/keystone:queens
+#    command: /bin/sh -c "sleep 20; /root/init_queens.sh; /root/start_keystone.sh"
     image: ttsubo/keystone:mitaka
     command: /bin/sh -c "sleep 20; /root/init_mitaka.sh; /root/start_keystone.sh"
     container_name: keystone-server
@@ -18,8 +21,9 @@ services:
     - OS_IDENTITY_API_VERSION=3 
 
   glance-server:
-    image: ttsubo/glance:mitaka
-    command: /bin/sh -c "sleep 60; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    build: docker/glance/.
+    image: ttsubo/glance:queens
+    command: /bin/sh -c "sleep 60; /root/init_queens.sh; /usr/bin/supervisord -n"
     container_name: glance-server
     hostname: glance-server
     environment:
@@ -33,8 +37,9 @@ services:
     - OS_IMAGE_API_VERSION=2
 
   nova-server:
-    image: ttsubo/nova:mitaka
-    command: /bin/sh -c "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    build: docker/nova/.
+    image: ttsubo/nova:queens
+    command: /bin/sh -c "sleep 80; /root/init_queens.sh; /usr/bin/supervisord -n"
     container_name: nova-server
     hostname: nova-server
     environment:
@@ -49,8 +54,9 @@ services:
     privileged: true
 
   neutron-server:
-    image: ttsubo/neutron:mitaka
-    command: /bin/sh -c "sleep 80; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    build: docker/neutron/.
+    image: ttsubo/neutron:queens
+    command: /bin/sh -c "sleep 80; /root/init_queens.sh; /usr/bin/supervisord -n"
     container_name: neutron-server
     hostname: neutron-server
     environment:
@@ -65,8 +71,9 @@ services:
     privileged: true
 
   heat-server:
-    image: ttsubo/heat:mitaka
-    command: /bin/sh -c "sleep 100; /root/init_mitaka.sh; /usr/bin/supervisord -n"
+    build: docker/heat/.
+    image: ttsubo/heat:queens
+    command: /bin/sh -c "sleep 100; /root/init_queens.sh; /usr/bin/supervisord -n"
     container_name: heat-server
     hostname: heat-server
     environment:

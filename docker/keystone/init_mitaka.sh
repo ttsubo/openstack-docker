@@ -7,6 +7,11 @@ GLANCE_HOST="glance-server"
 NEUTRON_HOST="neutron-server"
 MEMBER_PASSWORD="passw0rd"
 
+until mysqladmin ping -h mysql-openstack --silent; do
+    echo 'waiting for mysqld to be connectable...'
+    sleep 3
+done
+
 mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "CREATE DATABASE keystone;"
 mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'keystone';"
 
@@ -49,6 +54,8 @@ openstack user create --domain default --password="${MEMBER_PASSWORD}" neutron
 openstack role add --project service --user neutron admin
 openstack user create --domain default --password="${MEMBER_PASSWORD}" heat
 openstack role add --project service --user heat admin
+openstack user create --domain default --password="${MEMBER_PASSWORD}" placement
+openstack role add --project service --user placement admin
 
 # Add compute service
 openstack service create --name nova --description "OpenStack Nova Service" compute
@@ -74,6 +81,11 @@ openstack endpoint create --region RegionOne neutron public "http://${NEUTRON_HO
 openstack endpoint create --region RegionOne neutron internal "http://${NEUTRON_HOST}:9696"
 openstack endpoint create --region RegionOne neutron admin "http://${NEUTRON_HOST}:9696"
 
+# Add placement service
+openstack service create --name placement --description "OpenStack Placement Service" placement
+openstack endpoint create --region RegionOne placement public http://${NOVA_HOST}:8778
+openstack endpoint create --region RegionOne placement internal http://${NOVA_HOST}:8778
+openstack endpoint create --region RegionOne placement admin http://${NOVA_HOST}:8778
 
 # kill the keystone
 pkill keystone-all
