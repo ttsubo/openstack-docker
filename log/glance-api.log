@@ -1,0 +1,71 @@
+2020-04-05 22:45:57.095 18 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 22:45:57.097 18 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 22:45:57.101 18 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 22:45:57.106 18 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 22:45:57.200 18 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 22:45:57.206 18 INFO glance.common.wsgi [-] Started child 35
+2020-04-05 22:45:57.207 35 INFO eventlet.wsgi.server [-] (35) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:45:57.214 36 INFO eventlet.wsgi.server [-] (36) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:45:57.212 18 INFO glance.common.wsgi [-] Started child 36
+2020-04-05 22:45:57.219 18 INFO glance.common.wsgi [-] Started child 37
+2020-04-05 22:45:57.221 37 INFO eventlet.wsgi.server [-] (37) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:45:57.224 18 INFO glance.common.wsgi [-] Started child 38
+2020-04-05 22:45:57.226 38 INFO eventlet.wsgi.server [-] (38) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:46:00.171 35 WARNING keystonemiddleware.auth_token [-] Using the in-process token cache is deprecated as of the 4.2.0 release and may be removed in the 5.0.0 release or the 'O' development cycle. The in-process cache causes inconsistent results and high memory usage. When the feature is removed the auth_token middleware will not cache tokens by default which may result in performance issues. It is recommended to use  memcache for the auth_token token cache by setting the memcached_servers option.
+2020-04-05 22:46:00.720 35 INFO eventlet.wsgi.server [req-943f7f4d-c539-4978-a255-ad6ef28d1a9a aa5f9d550186456299ab6f6eb885b21e 73b52675c7184bf199b91c61112fa95a - 74fdda11e8624f2cb93ab859cd9b51c1 74fdda11e8624f2cb93ab859cd9b51c1] 172.18.0.6 - - [05/Apr/2020 22:46:00] "GET /v2/schemas/image HTTP/1.1" 200 4395 0.552137
+2020-04-05 22:46:00.758 35 WARNING oslo_db.sqlalchemy.engines [req-1f9fbaad-7a45-4ee9-b9e7-252ab6d8bc22 aa5f9d550186456299ab6f6eb885b21e 73b52675c7184bf199b91c61112fa95a - 74fdda11e8624f2cb93ab859cd9b51c1 74fdda11e8624f2cb93ab859cd9b51c1] URL mysql://root:***@mysql-openstack/glance does not contain a '+drivername' portion, and will make use of a default driver.  A full dbname+drivername:// protocol is recommended. For MySQL, it is strongly recommended that mysql+pymysql:// be specified for maximum service compatibility
+2020-04-05 22:46:00.851 35 INFO eventlet.wsgi.server [req-1f9fbaad-7a45-4ee9-b9e7-252ab6d8bc22 aa5f9d550186456299ab6f6eb885b21e 73b52675c7184bf199b91c61112fa95a - 74fdda11e8624f2cb93ab859cd9b51c1 74fdda11e8624f2cb93ab859cd9b51c1] 172.18.0.6 - - [05/Apr/2020 22:46:00] "POST /v2/images HTTP/1.1" 201 898 0.109765
+2020-04-05 22:46:01.096 35 INFO eventlet.wsgi.server [req-d59d6f19-8875-4ca0-890b-6f90162f89f1 aa5f9d550186456299ab6f6eb885b21e 73b52675c7184bf199b91c61112fa95a - 74fdda11e8624f2cb93ab859cd9b51c1 74fdda11e8624f2cb93ab859cd9b51c1] 172.18.0.6 - - [05/Apr/2020 22:46:01] "PUT /v2/images/e38ab5c1-73e8-4194-b555-f3f5b432d589/file HTTP/1.1" 204 213 0.237695
+2020-04-05 22:46:01.113 35 INFO eventlet.wsgi.server [req-537d0a44-ac5f-4409-89a9-d438b8f406e8 aa5f9d550186456299ab6f6eb885b21e 73b52675c7184bf199b91c61112fa95a - 74fdda11e8624f2cb93ab859cd9b51c1 74fdda11e8624f2cb93ab859cd9b51c1] 172.18.0.6 - - [05/Apr/2020 22:46:01] "GET /v2/images/e38ab5c1-73e8-4194-b555-f3f5b432d589 HTTP/1.1" 200 783 0.015285
+2020-04-05 22:46:01.119 35 INFO eventlet.wsgi.server [req-1ea21511-c343-402d-9b08-3fa8227c8337 aa5f9d550186456299ab6f6eb885b21e 73b52675c7184bf199b91c61112fa95a - 74fdda11e8624f2cb93ab859cd9b51c1 74fdda11e8624f2cb93ab859cd9b51c1] 172.18.0.6 - - [05/Apr/2020 22:46:01] "GET /v2/schemas/image HTTP/1.1" 200 4395 0.002783
+2020-04-05 22:46:01.184 18 INFO glance.common.wsgi [-] Removed dead child 36
+2020-04-05 22:46:01.202 18 INFO glance.common.wsgi [-] Started child 48
+2020-04-05 22:46:01.204 48 INFO eventlet.wsgi.server [-] (48) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:46:01.206 48 INFO eventlet.wsgi.server [-] (48) wsgi exited, is_accepting=True
+2020-04-05 22:46:01.208 48 INFO glance.common.wsgi [-] Child 48 exiting normally
+2020-04-05 22:46:03.755 51 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 22:46:03.758 51 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 22:46:03.761 51 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 22:46:03.766 51 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 22:46:03.812 51 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 22:46:03.817 51 INFO glance.common.wsgi [-] Started child 67
+2020-04-05 22:46:03.819 67 INFO eventlet.wsgi.server [-] (67) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:46:03.821 51 INFO glance.common.wsgi [-] Started child 68
+2020-04-05 22:46:03.823 68 INFO eventlet.wsgi.server [-] (68) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:46:03.825 51 INFO glance.common.wsgi [-] Started child 69
+2020-04-05 22:46:03.827 69 INFO eventlet.wsgi.server [-] (69) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 22:46:03.830 51 INFO glance.common.wsgi [-] Started child 70
+2020-04-05 22:46:03.831 70 INFO eventlet.wsgi.server [-] (70) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:47.759 17 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 23:29:47.762 17 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 23:29:47.765 17 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 23:29:47.770 17 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 23:29:47.858 17 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 23:29:47.864 17 INFO glance.common.wsgi [-] Started child 34
+2020-04-05 23:29:47.866 34 INFO eventlet.wsgi.server [-] (34) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:47.870 17 INFO glance.common.wsgi [-] Started child 35
+2020-04-05 23:29:47.872 35 INFO eventlet.wsgi.server [-] (35) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:47.875 17 INFO glance.common.wsgi [-] Started child 36
+2020-04-05 23:29:47.876 36 INFO eventlet.wsgi.server [-] (36) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:47.879 17 INFO glance.common.wsgi [-] Started child 37
+2020-04-05 23:29:47.881 37 INFO eventlet.wsgi.server [-] (37) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:50.757 35 WARNING keystonemiddleware.auth_token [-] Using the in-process token cache is deprecated as of the 4.2.0 release and may be removed in the 5.0.0 release or the 'O' development cycle. The in-process cache causes inconsistent results and high memory usage. When the feature is removed the auth_token middleware will not cache tokens by default which may result in performance issues. It is recommended to use  memcache for the auth_token token cache by setting the memcached_servers option.
+2020-04-05 23:29:51.248 35 INFO eventlet.wsgi.server [req-122477e8-4852-45b4-8000-1e5efaab2ea3 53272dbc78974b599df9b452e676d0ec 2cb32c62075b4751ab89a9e1dd7dd6c9 - eb9a8e5a38c94156890f188f80197828 eb9a8e5a38c94156890f188f80197828] 172.18.0.4 - - [05/Apr/2020 23:29:51] "GET /v2/schemas/image HTTP/1.1" 200 4395 0.494103
+2020-04-05 23:29:51.286 35 WARNING oslo_db.sqlalchemy.engines [req-039046bb-31d9-42c1-936d-ea7ec3442605 53272dbc78974b599df9b452e676d0ec 2cb32c62075b4751ab89a9e1dd7dd6c9 - eb9a8e5a38c94156890f188f80197828 eb9a8e5a38c94156890f188f80197828] URL mysql://root:***@mysql-openstack/glance does not contain a '+drivername' portion, and will make use of a default driver.  A full dbname+drivername:// protocol is recommended. For MySQL, it is strongly recommended that mysql+pymysql:// be specified for maximum service compatibility
+2020-04-05 23:29:51.376 35 INFO eventlet.wsgi.server [req-039046bb-31d9-42c1-936d-ea7ec3442605 53272dbc78974b599df9b452e676d0ec 2cb32c62075b4751ab89a9e1dd7dd6c9 - eb9a8e5a38c94156890f188f80197828 eb9a8e5a38c94156890f188f80197828] 172.18.0.4 - - [05/Apr/2020 23:29:51] "POST /v2/images HTTP/1.1" 201 898 0.106744
+2020-04-05 23:29:51.543 35 INFO eventlet.wsgi.server [req-5fec7b24-7296-4dde-b0c0-e4172fd38e5f 53272dbc78974b599df9b452e676d0ec 2cb32c62075b4751ab89a9e1dd7dd6c9 - eb9a8e5a38c94156890f188f80197828 eb9a8e5a38c94156890f188f80197828] 172.18.0.4 - - [05/Apr/2020 23:29:51] "PUT /v2/images/ba3cbddc-b48d-49a0-a334-04b471c206c4/file HTTP/1.1" 204 213 0.158154
+2020-04-05 23:29:51.561 35 INFO eventlet.wsgi.server [req-ad0e4e23-13e7-4ef2-8df8-03ac384d8cd7 53272dbc78974b599df9b452e676d0ec 2cb32c62075b4751ab89a9e1dd7dd6c9 - eb9a8e5a38c94156890f188f80197828 eb9a8e5a38c94156890f188f80197828] 172.18.0.4 - - [05/Apr/2020 23:29:51] "GET /v2/images/ba3cbddc-b48d-49a0-a334-04b471c206c4 HTTP/1.1" 200 783 0.015051
+2020-04-05 23:29:51.567 35 INFO eventlet.wsgi.server [req-5dafb5f0-5d4f-4dc2-96c2-156b3a729a1f 53272dbc78974b599df9b452e676d0ec 2cb32c62075b4751ab89a9e1dd7dd6c9 - eb9a8e5a38c94156890f188f80197828 eb9a8e5a38c94156890f188f80197828] 172.18.0.4 - - [05/Apr/2020 23:29:51] "GET /v2/schemas/image HTTP/1.1" 200 4395 0.003065
+2020-04-05 23:29:54.157 49 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 23:29:54.160 49 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 23:29:54.163 49 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 23:29:54.167 49 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 23:29:54.209 49 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 23:29:54.215 49 INFO glance.common.wsgi [-] Started child 65
+2020-04-05 23:29:54.216 65 INFO eventlet.wsgi.server [-] (65) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:54.220 49 INFO glance.common.wsgi [-] Started child 66
+2020-04-05 23:29:54.221 66 INFO eventlet.wsgi.server [-] (66) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:54.225 49 INFO glance.common.wsgi [-] Started child 67
+2020-04-05 23:29:54.226 67 INFO eventlet.wsgi.server [-] (67) wsgi starting up on http://0.0.0.0:9292
+2020-04-05 23:29:54.229 49 INFO glance.common.wsgi [-] Started child 68
+2020-04-05 23:29:54.231 68 INFO eventlet.wsgi.server [-] (68) wsgi starting up on http://0.0.0.0:9292

@@ -23,13 +23,13 @@ mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON nov
 /usr/bin/nova-manage db sync
 
 # Temporarally start nova for creating nova-flavor
-/usr/bin/nova-api --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-api.log &
-/usr/bin/nova-scheduler --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-scheduler.log &
-/usr/bin/nova-novncproxy --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-novncproxy.log &
-/usr/bin/nova-conductor --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-conductor.log &
-/usr/bin/nova-consoleauth --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-consoleauth.log &
-/usr/bin/nova-console --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-console.log &
-/usr/bin/nova-compute --config-file=/etc/nova/nova.conf --log-file=/var/log/nova/nova-compute.log &
+/usr/bin/nova-api --config-file=/etc/nova/nova.conf --log-file=/log/nova-api.log &
+/usr/bin/nova-scheduler --config-file=/etc/nova/nova.conf --log-file=/log/nova-scheduler.log &
+/usr/bin/nova-novncproxy --config-file=/etc/nova/nova.conf --log-file=/log/nova-novncproxy.log &
+/usr/bin/nova-conductor --config-file=/etc/nova/nova.conf --log-file=/log/nova-conductor.log &
+/usr/bin/nova-consoleauth --config-file=/etc/nova/nova.conf --log-file=/log/nova-consoleauth.log &
+/usr/bin/nova-console --config-file=/etc/nova/nova.conf --log-file=/log/nova-console.log &
+/usr/bin/nova-compute --config-file=/etc/nova/nova.conf --log-file=/log/nova-compute.log &
 
 sleep 20
 echo "## Start creating flavor"

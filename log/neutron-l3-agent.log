@@ -1,0 +1,33 @@
+2020-04-05 22:46:31.662 21 INFO neutron.common.config [-] Logging enabled!
+2020-04-05 22:46:31.672 21 INFO neutron.common.config [-] /usr/bin/neutron-l3-agent version 12.1.0
+2020-04-05 22:46:51.048 90 INFO neutron.common.config [-] Logging enabled!
+2020-04-05 22:46:51.058 90 INFO neutron.common.config [-] /usr/bin/neutron-l3-agent version 12.1.0
+2020-04-05 22:47:03.752 90 INFO neutron.agent.agent_extensions_manager [req-5add5a4e-07c0-44a7-abd6-64a329a682e3 - - - - -] Loaded agent extensions: []
+2020-04-05 22:47:03.756 90 INFO neutron.common.ipv6_utils [req-5add5a4e-07c0-44a7-abd6-64a329a682e3 - - - - -] IPv6 not present or configured not to bind to new interfaces on this system. Please ensure IPv6 is enabled and /proc/sys/net/ipv6/conf/default/disable_ipv6 is set to 0 to enable IPv6.
+2020-04-05 22:47:03.796 90 WARNING oslo_config.cfg [-] Option "external_network_bridge" from group "DEFAULT" is deprecated for removal.  Its value may be silently ignored in the future.
+2020-04-05 22:47:03.806 90 INFO eventlet.wsgi.server [-] (90) wsgi starting up on http:/var/lib/neutron/keepalived-state-change
+2020-04-05 22:47:03.982 90 INFO neutron.agent.l3.agent [-] L3 agent started
+2020-04-05 22:47:06.990 90 INFO oslo.privsep.daemon [req-fe9fc680-703a-4bd8-8129-8043012108ab - - - - -] Running privsep helper: ['sudo', 'privsep-helper', '--config-file', '/etc/neutron/l3_agent.ini', '--privsep_context', 'neutron.privileged.default', '--privsep_sock_path', '/tmp/tmpSGJJJ8/privsep.sock']
+2020-04-05 22:47:07.544 90 INFO oslo.privsep.daemon [req-fe9fc680-703a-4bd8-8129-8043012108ab - - - - -] Spawned new privsep daemon via rootwrap
+2020-04-05 22:47:07.468 401 INFO oslo.privsep.daemon [-] privsep daemon starting
+2020-04-05 22:47:07.475 401 INFO oslo.privsep.daemon [-] privsep process running with uid/gid: 0/0
+2020-04-05 22:47:07.480 401 INFO oslo.privsep.daemon [-] privsep process running with capabilities (eff/prm/inh): CAP_DAC_OVERRIDE|CAP_DAC_READ_SEARCH|CAP_NET_ADMIN|CAP_SYS_ADMIN/CAP_DAC_OVERRIDE|CAP_DAC_READ_SEARCH|CAP_NET_ADMIN|CAP_SYS_ADMIN/none
+2020-04-05 22:47:07.481 401 INFO oslo.privsep.daemon [-] privsep daemon running as pid 401
+2020-04-05 23:30:20.717 36 INFO neutron.common.config [-] Logging enabled!
+2020-04-05 23:30:20.720 36 INFO neutron.common.config [-] /usr/bin/neutron-l3-agent version 12.1.0
+2020-04-05 23:30:40.354 104 INFO neutron.common.config [-] Logging enabled!
+2020-04-05 23:30:40.356 104 INFO neutron.common.config [-] /usr/bin/neutron-l3-agent version 12.1.0
+2020-04-05 23:31:46.880 104 ERROR neutron.common.rpc [req-c8933c8f-7053-4802-8007-36574af9c9b3 - - - - -] Timeout in RPC method get_service_plugin_list. Waiting for 37 seconds before next attempt. If the server is not down, consider increasing the rpc_response_timeout option as Neutron server(s) may be overloaded and unable to respond quickly enough.: MessagingTimeout: Timed out waiting for a reply to message ID 11740a179d3c451b81a7a1a7280dd38e
+2020-04-05 23:31:46.885 104 WARNING neutron.common.rpc [req-c8933c8f-7053-4802-8007-36574af9c9b3 - - - - -] Increasing timeout for get_service_plugin_list calls to 120 seconds. Restart the agent to restore it to the default value.: MessagingTimeout: Timed out waiting for a reply to message ID 11740a179d3c451b81a7a1a7280dd38e
+2020-04-05 23:32:23.999 104 WARNING neutron.agent.l3.agent [req-c8933c8f-7053-4802-8007-36574af9c9b3 - - - - -] l3-agent cannot contact neutron server to retrieve service plugins enabled. Check connectivity to neutron server. Retrying... Detailed message: Timed out waiting for a reply to message ID 11740a179d3c451b81a7a1a7280dd38e.: MessagingTimeout: Timed out waiting for a reply to message ID 11740a179d3c451b81a7a1a7280dd38e
+2020-04-05 23:32:24.073 104 INFO neutron.agent.agent_extensions_manager [req-09c21821-f191-48c9-b133-04711fba94cc - - - - -] Loaded agent extensions: []
+2020-04-05 23:32:24.079 104 INFO neutron.common.ipv6_utils [req-09c21821-f191-48c9-b133-04711fba94cc - - - - -] IPv6 not present or configured not to bind to new interfaces on this system. Please ensure IPv6 is enabled and /proc/sys/net/ipv6/conf/default/disable_ipv6 is set to 0 to enable IPv6.
+2020-04-05 23:32:24.156 104 WARNING oslo_config.cfg [-] Option "external_network_bridge" from group "DEFAULT" is deprecated for removal.  Its value may be silently ignored in the future.
+2020-04-05 23:32:24.179 104 INFO eventlet.wsgi.server [-] (104) wsgi starting up on http:/var/lib/neutron/keepalived-state-change
+2020-04-05 23:32:24.280 104 INFO neutron.agent.l3.agent [-] L3 agent started
+2020-04-05 23:32:24.295 104 INFO oslo.privsep.daemon [req-3a49e525-3b82-4ce9-a335-b9dfc4d9e81a - - - - -] Running privsep helper: ['sudo', 'privsep-helper', '--config-file', '/etc/neutron/l3_agent.ini', '--privsep_context', 'neutron.privileged.default', '--privsep_sock_path', '/tmp/tmpFXL3mo/privsep.sock']
+2020-04-05 23:32:24.923 104 INFO oslo.privsep.daemon [req-3a49e525-3b82-4ce9-a335-b9dfc4d9e81a - - - - -] Spawned new privsep daemon via rootwrap
+2020-04-05 23:32:24.865 522 INFO oslo.privsep.daemon [-] privsep daemon starting
+2020-04-05 23:32:24.869 522 INFO oslo.privsep.daemon [-] privsep process running with uid/gid: 0/0
+2020-04-05 23:32:24.872 522 INFO oslo.privsep.daemon [-] privsep process running with capabilities (eff/prm/inh): CAP_DAC_OVERRIDE|CAP_DAC_READ_SEARCH|CAP_NET_ADMIN|CAP_SYS_ADMIN/CAP_DAC_OVERRIDE|CAP_DAC_READ_SEARCH|CAP_NET_ADMIN|CAP_SYS_ADMIN/none
+2020-04-05 23:32:24.873 522 INFO oslo.privsep.daemon [-] privsep daemon running as pid 522

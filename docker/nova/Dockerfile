@@ -36,6 +36,9 @@ ADD supervisord.conf /etc/supervisor/
 ADD rabbitmq.conf /etc/supervisor/conf.d/
 ADD nova-supervisor.conf /etc/supervisor/conf.d
 
+# Patch for avoiding https://github.com/openstack/nova/commit/c634f78da173423029e9dad5f074619039a4c7bc
+COPY ./api.py /usr/lib/python2.7/dist-packages/nova/network/neutronv2/api.py
+
 EXPOSE 5999
 EXPOSE 8773
 EXPOSE 8774

@@ -11,8 +11,8 @@ mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON gla
 /usr/bin/glance-manage db_sync
 
 # Temporarally start glance for creating glance-image
-/usr/bin/glance-api --config-file=/etc/glance/glance-api.conf --log-file=/var/log/glance/glance-api.log &
-/usr/bin/glance-registry --config-file=/etc/glance/glance-registry.conf --log-file=/var/log/glance/glance-registry.log &
+/usr/bin/glance-api --config-file=/etc/glance/glance-api.conf --log-file=/log/glance-api.log &
+/usr/bin/glance-registry --config-file=/etc/glance/glance-registry.conf --log-file=/log/glance-registry.log &
 sleep 3
 
 openstack image create "cirros" \

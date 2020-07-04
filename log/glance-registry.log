@@ -1,0 +1,52 @@
+2020-04-05 22:45:56.864 19 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 22:45:56.867 19 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 22:45:56.870 19 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 22:45:56.877 19 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 22:45:56.881 19 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 22:45:56.886 19 INFO glance.common.wsgi [-] Started child 31
+2020-04-05 22:45:56.887 31 INFO eventlet.wsgi.server [-] (31) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:45:56.891 19 INFO glance.common.wsgi [-] Started child 32
+2020-04-05 22:45:56.893 32 INFO eventlet.wsgi.server [-] (32) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:45:56.896 19 INFO glance.common.wsgi [-] Started child 33
+2020-04-05 22:45:56.898 33 INFO eventlet.wsgi.server [-] (33) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:45:56.902 19 INFO glance.common.wsgi [-] Started child 34
+2020-04-05 22:45:56.904 34 INFO eventlet.wsgi.server [-] (34) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:46:03.612 52 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 22:46:03.615 52 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 22:46:03.618 52 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 22:46:03.623 52 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 22:46:03.626 52 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 22:46:03.631 52 INFO glance.common.wsgi [-] Started child 63
+2020-04-05 22:46:03.632 63 INFO eventlet.wsgi.server [-] (63) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:46:03.636 52 INFO glance.common.wsgi [-] Started child 64
+2020-04-05 22:46:03.637 64 INFO eventlet.wsgi.server [-] (64) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:46:03.640 52 INFO glance.common.wsgi [-] Started child 65
+2020-04-05 22:46:03.642 65 INFO eventlet.wsgi.server [-] (65) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 22:46:03.647 52 INFO glance.common.wsgi [-] Started child 66
+2020-04-05 22:46:03.649 66 INFO eventlet.wsgi.server [-] (66) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:47.562 18 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 23:29:47.564 18 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 23:29:47.567 18 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 23:29:47.572 18 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 23:29:47.575 18 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 23:29:47.580 18 INFO glance.common.wsgi [-] Started child 30
+2020-04-05 23:29:47.582 30 INFO eventlet.wsgi.server [-] (30) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:47.584 18 INFO glance.common.wsgi [-] Started child 31
+2020-04-05 23:29:47.586 31 INFO eventlet.wsgi.server [-] (31) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:47.588 18 INFO glance.common.wsgi [-] Started child 32
+2020-04-05 23:29:47.590 32 INFO eventlet.wsgi.server [-] (32) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:47.593 18 INFO glance.common.wsgi [-] Started child 33
+2020-04-05 23:29:47.595 33 INFO eventlet.wsgi.server [-] (33) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:54.040 50 WARNING keystonemiddleware._common.config [-] The option "__file__" in conf is not known to auth_token
+2020-04-05 23:29:54.043 50 WARNING keystonemiddleware._common.config [-] The option "here" in conf is not known to auth_token
+2020-04-05 23:29:54.046 50 WARNING keystonemiddleware.auth_token [-] AuthToken middleware is set with keystone_authtoken.service_token_roles_required set to False. This is backwards compatible but deprecated behaviour. Please set this to True.
+2020-04-05 23:29:54.051 50 WARNING oslo_config.cfg [-] Option "auth_uri" from group "keystone_authtoken" is deprecated. Use option "www_authenticate_uri" from group "keystone_authtoken".
+2020-04-05 23:29:54.055 50 INFO glance.common.wsgi [-] Starting 4 workers
+2020-04-05 23:29:54.060 50 INFO glance.common.wsgi [-] Started child 61
+2020-04-05 23:29:54.061 61 INFO eventlet.wsgi.server [-] (61) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:54.065 50 INFO glance.common.wsgi [-] Started child 62
+2020-04-05 23:29:54.066 62 INFO eventlet.wsgi.server [-] (62) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:54.069 50 INFO glance.common.wsgi [-] Started child 63
+2020-04-05 23:29:54.071 63 INFO eventlet.wsgi.server [-] (63) wsgi starting up on http://0.0.0.0:9191
+2020-04-05 23:29:54.075 50 INFO glance.common.wsgi [-] Started child 64
+2020-04-05 23:29:54.077 64 INFO eventlet.wsgi.server [-] (64) wsgi starting up on http://0.0.0.0:9191

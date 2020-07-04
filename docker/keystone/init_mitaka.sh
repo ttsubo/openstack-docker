@@ -19,7 +19,7 @@ mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON key
 sleep 3
 
 # Temporarally start Keystone for us to configure
-/usr/bin/keystone-all --config-file=/etc/keystone/keystone.conf --log-file=/var/log/keystone/keystone.log &
+/usr/bin/keystone-all --config-file=/etc/keystone/keystone.conf --log-file=/log/keystone.log &
 sleep 3
 
 # Add domain

@@ -27,7 +27,7 @@ COPY ./glance-registry.conf /etc/glance/glance-registry.conf
 COPY ./init_queens.sh /root/init_queens.sh
 COPY ./openstackrc_admin /root/openstackrc_admin
 ADD supervisord.conf /etc/supervisor/
-ADD glance.conf /etc/supervisor/conf.d/
+ADD glance-supervisor.conf /etc/supervisor/conf.d/
 ADD https://download.cirros-cloud.net/0.3.5/cirros-0.3.5-x86_64-disk.img /root
 
 EXPOSE 9292

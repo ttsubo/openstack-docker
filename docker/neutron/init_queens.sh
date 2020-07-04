@@ -15,16 +15,16 @@ mysql -uroot -pmysql123 -hmysql-openstack -P3306 -e "GRANT ALL PRIVILEGES ON neu
 sleep 10
 /usr/bin/neutron-server \
   --config-file=/etc/neutron/neutron.conf \
-  --log-file=/var/log/neutron/neutron-server.log &
+  --log-file=/log/neutron-server.log &
 /usr/bin/neutron-linuxbridge-agent \
   --config-file=/etc/neutron/plugins/ml2/linuxbridge_agent.ini \
-  --log-file=/var/log/neutron/neutron-linuxbridge-agent.log &
+  --log-file=/log/neutron-linuxbridge-agent.log &
 /usr/bin/neutron-dhcp-agent \
   --config-file=/etc/neutron/dhcp_agent.ini \
-  --log-file=/var/log/neutron/neutron-dhcp-agent.log &
+  --log-file=/log/neutron-dhcp-agent.log &
 /usr/bin/neutron-l3-agent \
   --config-file=/etc/neutron/l3_agent.ini \
-  --log-file=/var/log/neutron/neutron-l3-agent.log &
+  --log-file=/log/neutron-l3-agent.log &
 sleep 10
 
 echo 'net.ipv4.ip_forward=1' >> /etc/sysctl.conf 
@@ -33,9 +33,9 @@ echo 'net.ipv4.conf.all.rp_filter=0' >> /etc/sysctl.conf
 sysctl -p 
 
 
-openstack network create admin_net &
-neutron subnet-create admin_net 10.0.0.0/24 --name admin_subnet &
-neutron port-create admin_net &
+openstack network create admin_net 
+neutron subnet-create admin_net 10.0.0.0/24 --name admin_subnet 
+#neutron port-create admin_net 
 
 pkill neutron-server
 pkill neutron-linuxbridge-agent
