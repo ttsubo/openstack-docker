@@ -10,7 +10,8 @@ ADD https://bootstrap.pypa.io/get-pip.py /
 RUN python get-pip.py \
  && pip install pip==9.0.3
 
-RUN apt-get install -y apt-file \
+RUN apt-get update \
+ && apt-get install -y apt-file \
  && apt-get install -y software-properties-common \
  && apt-get install -y python-software-properties \
  && add-apt-repository -y cloud-archive:queens
